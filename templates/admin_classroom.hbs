@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Classroom Control</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #8B47B5, #FED0C5);
+            color: #FED0C5;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-weight: 600;
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-right: auto;
+        }
+
+        .header-search {
+            margin-right: auto;
+            position: relative;
+        }
+
+        .header-search input {
+            width: 100%;
+            max-width: 250px;
+            padding: 7px 15px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+            background-color: #ca8eef;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .header-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 7px 12px;
+            transition: color 0.3s ease, background 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #fae3dd;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 30px;
+            padding: 0 30px;
+            justify-content: space-between;
+        }
+
+        .left-sidebar {
+            width: 260px;
+            background-color: #FED0C5;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            margin-right: 30px;
+            font-weight: 500;
+        }
+
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-profile img {
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sidebar-profile img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar-profile h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #8B47B5;
+            font-weight: 700;
+        }
+
+        .sidebar-profile p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .sidebar-links1 a {
+            display: block;
+            color: #8B47B5;
+            text-decoration: none;
+            padding: 12px 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .sidebar-links1 a:hover {
+            padding-left: 15px;
+            background-color: #d0a5ea;
+        }
+
+        .right-sidebar {
+            width: 260px;
+            background-color: #FED0C5;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            margin-left: 30px;
+            font-weight: 500;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: calc(100% - 580px);
+        }
+
+        .admin-section {
+            padding: 20px;
+            background-color: #FED0C5;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .admin-section h2 {
+            font-size: 28px;
+            color: #8B47B5;
+            margin-bottom: 20px;
+        }
+
+        .admin-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option-item {
+            padding: 15px;
+            background-color: #FED0C5;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(247, 241, 241, 0.1);
+            transition: all 0.3s ease;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .option-item:hover {
+            background-color: #d0a5ea;
+            box-shadow: 0 4px 12px rgba(255, 253, 253, 0.2);
+        }
+
+        .option-item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .option-item h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .option-item p {
+            margin: 5px 0 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .query-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #FED0C5;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .query-section h2 {
+            font-size: 24px;
+            color: #8B47B5;
+            margin-bottom: 20px;
+        }
+
+        .query-section textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+            height: 150px;
+        }
+
+        .query-section button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #8B47B5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .query-section button:hover {
+            background-color: #6A3690;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">Admin Panel</div>
+        <div class="header-search">
+            <input type="text" placeholder="Search...">
+        </div>
+        <nav class="header-nav">
+            <a href="admin_attendence">Check Attendance</a>
+            <a href="#">Logout</a>
+            <a href="fire_alert">Firealert</a>
+            <a href="resources">Resources</a>
+            
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="left-sidebar">
+            <div class="sidebar-profile">
+                <img src="https://via.placeholder.com/90" alt="Profile Picture">
+                <h3>{{adminName}}</h3>
+                <p>Admin ID: 000001</p>
+            </div>
+            <div class="sidebar-links1">
+                <a href="/add_student">Add Students </a>
+                <a href="#">Add Marks</a>
+                <a href="notes_upload">Upload Notes</a>
+                <a href="Upload_lectures">Upload Lectures</a>
+                <a href="/upload_DPP">Upload DPP</a>
+                <a href="update_routine">update Routine</a>
+                <a href="#">View Student Profiles</a>
+                <a href="classroom_message">Messages</a>
+                <a href="#">Monitor Activity</a>
+            </div>
+        </aside>
+
+        <main>
+            <div class="admin-section">
+                <h2>Admin Controls</h2>
+                <div class="admin-options">
+                    <div class="option-item">
+                        <a href="#">
+                            <h3>Upload Content for Subject</h3>
+                            <p>You can upload materials on your subject.</p>
+                        </a>
+                    </div>
+                    <div class="option-item">
+                        <a href="#">
+                            <h3>Edit Content</h3>
+                            <p>Modify content such as announcements, lessons, and more.</p>
+                        </a>
+                    </div>
+                    <div class="option-item">
+                        <a href="#">
+                            <h3>Manage Students</h3>
+                            <p>Control access, edit profiles, and monitor student activity.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="query-section">
+                <h2>Upload News</h2>
+                <textarea placeholder="Want to notify anything to students"></textarea>
+                <button>Submit</button>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <h3>Recent Activity</h3>
+            <ul>
+                <li>Rajjak Ahmed updated his profile.</li>
+                <li>New content added to Biology course by another Admin.</li>
+                <li>Students submitted quiz results.</li>
+            </ul>
+        </aside>
+    </div>
+</body>
+</html>

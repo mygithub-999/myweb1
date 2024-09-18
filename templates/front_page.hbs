@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Future of Education</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, rgba(254, 208, 197, 0.72) 0%, rgba(255, 255, 255, 0.52) 100%);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            max-width: 1440px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .h-container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            gap: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .welcome-text {
+            font-size: 64px;
+            font-weight: 700;
+            color: #5F2A8E;
+            margin-top: 50px;
+            line-height: 1.2;
+            animation: slideInFromLeft 1.5s ease-out;
+        }
+
+        .description {
+            font-size: 24px;
+            font-weight: 400;
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #333;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .login-button {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0); /* Transparent background */
+            border: 2px solid #8B47B5;
+            color: #8B47B5;
+            font-size: 24px;
+            font-weight: 600;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #8B47B5;
+            color: #FED0C5;
+            transform: scale(1.1);
+        }
+
+        .background-circles {
+            position: absolute;
+            border-radius: 9999px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            left: 800px;
+            top: 650px;
+            background: rgba(0, 0, 0, 0.2);
+            animation-delay: 0.2s;
+        }
+
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            left: 1000px;
+            top: 600px;
+            background: rgba(254, 208, 197, 0.32);
+            animation-delay: 0.5s;
+        }
+
+        .circle-3 {
+            width: 180px;
+            height: 180px;
+            left: 1200px;
+            top: 550px;
+            background: rgba(139, 71, 181, 0.4);
+            animation-delay: 0.8s;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 48px;
+            }
+
+            .description {
+                font-size: 18px;
+                padding: 0 20px;
+            }
+
+            .login-button {
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+
+            .circle-1, .circle-2, .circle-3 {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="h-container">
+            <a href="admin-login" class="login-button">Admin Login</a>
+            <a href="student-login" class="login-button">Student Login</a>
+        </div>
+        <div class="welcome-text">Welcome to the Future of Education</div>
+        <div class="description">
+            This innovative smart software solution is designed to streamline classroom operations, optimize resource usage, and elevate the learning experience for both students and educators. By leveraging advanced technology, whether you're a student or an administrator, this solution is here to make classroom management smarter, easier, and more effective.
+        </div>
+        <div class="background-circles circle-1"></div>
+        <div class="background-circles circle-2"></div>
+        <div class="background-circles circle-3"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload DPP</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #8B47B5; /* Navbar background color */
+            color: #FED0C5; /* Navbar text color */
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: #FED0C5; /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #A65CC6; /* Lighter shade for hover */
+            color: #FFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .upload-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-section h2 {
+            font-size: 28px;
+            color: #8B47B5; /* Updated color for headings */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            padding-bottom: 10px;
+        }
+
+        .subject {
+            margin-bottom: 40px;
+        }
+
+        .subject h3 {
+            font-size: 24px;
+            color: #8B47B5; /* Updated color for subject headings */
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .upload-form label {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .upload-form input[type="text"], .upload-form input[type="file"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .upload-form button {
+            background-color: #8B47B5; /* Button background color */
+            color: #FED0C5; /* Button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        .upload-form button:hover {
+            background-color: #A65CC6; /* Lighter shade for button hover */
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .upload-form {
+                padding: 20px;
+            }
+
+            .upload-form input[type="text"], .upload-form input[type="file"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">Upload DPP</div>
+        <nav class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Assignments</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="upload-section">
+            <h2>Upload Daily Practice Papers</h2>
+
+            <!-- Mathematics DPPs -->
+            <div class="subject">
+                <h3>Mathematics</h3>
+                <form class="upload-form" action="/upload/mathematics" method="POST" enctype="multipart/form-data">
+                    <label for="math-dpp-name">DPP Name:</label>
+                    <input type="text" id="math-dpp-name" name="dpp_name" placeholder="Enter DPP title" required>
+
+                    <label for="math-dpp-file">Upload File:</label>
+                    <input type="file" id="math-dpp-file" name="dpp_file" accept=".pdf" required>
+
+                    <button type="submit">Upload Mathematics DPP</button>
+                </form>
+            </div>
+
+            <!-- Physics DPPs -->
+            <div class="subject">
+                <h3>Physics</h3>
+                <form class="upload-form" action="/upload/physics" method="POST" enctype="multipart/form-data">
+                    <label for="phy-dpp-name">DPP Name:</label>
+                    <input type="text" id="phy-dpp-name" name="dpp_name" placeholder="Enter DPP title" required>
+
+                    <label for="phy-dpp-file">Upload File:</label>
+                    <input type="file" id="phy-dpp-file" name="dpp_file" accept=".pdf" required>
+
+                    <button type="submit">Upload Physics DPP</button>
+                </form>
+            </div>
+
+            <!-- Chemistry DPPs -->
+            <div class="subject">
+                <h3>Chemistry</h3>
+                <form class="upload-form" action="/upload/chemistry" method="POST" enctype="multipart/form-data">
+                    <label for="chem-dpp-name">DPP Name:</label>
+                    <input type="text" id="chem-dpp-name" name="dpp_name" placeholder="Enter DPP title" required>
+
+                    <label for="chem-dpp-file">Upload File:</label>
+                    <input type="file" id="chem-dpp-file" name="dpp_file" accept=".pdf" required>
+
+                    <button type="submit">Upload Chemistry DPP</button>
+                </form>
+            </div>
+
+            <!-- Biology DPPs -->
+            <div class="subject">
+                <h3>Biology</h3>
+                <form class="upload-form" action="/upload/biology" method="POST" enctype="multipart/form-data">
+                    <label for="bio-dpp-name">DPP Name:</label>
+                    <input type="text" id="bio-dpp-name" name="dpp_name" placeholder="Enter DPP title" required>
+
+                    <label for="bio-dpp-file">Upload File:</label>
+                    <input type="file" id="bio-dpp-file" name="dpp_file" accept=".pdf" required>
+
+                
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

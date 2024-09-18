@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Routine</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #8B47B5; /* Navbar background color */
+            color: #FED0C5; /* Navbar text color */
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: #FED0C5; /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #A65CC6; /* Lighter shade for hover */
+            color: #FFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .update-routine-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-routine-section h2 {
+            font-size: 28px;
+            color: #8B47B5; /* Updated color for headings */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group button {
+            background-color: #8B47B5; /* Button background color */
+            color: #FED0C5; /* Button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #A65CC6; /* Lighter shade for button hover */
+            transform: scale(1.05);
+        }
+
+        .routine-list {
+            margin-top: 30px;
+        }
+
+        .routine-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .routine-list th, .routine-list td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .routine-list th {
+            background-color: #8B47B5; /* Header background color */
+            color: #FED0C5; /* Header text color */
+        }
+
+        .routine-list tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .routine-list button {
+            background-color: #f44336; /* Delete button color */
+            color: #FFF;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .routine-list button:hover {
+            background-color: #d32f2f; /* Darker shade for delete button hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .update-routine-section {
+                padding: 20px;
+            }
+
+            .form-group input, .form-group select, .form-group textarea {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .routine-list th, .routine-list td {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">Update Routine</div>
+        <nav class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Assignments</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="update-routine-section">
+            <h2>Update Routine</h2>
+
+            <!-- Add or Update Routine Form -->
+            <div class="form-group">
+                <label for="day">Day</label>
+                <select id="day">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time</label>
+                <input type="text" id="time" placeholder="e.g., 9:00 AM - 10:30 AM">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="e.g., Mathematics">
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Activity</label>
+                <input type="text" id="activity" placeholder="e.g., Lecture">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Add/Update Routine</button>
+            </div>
+
+            <!-- Routine List -->
+            <div class="routine-list">
+                <h3>Current Routine</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time</th>
+                            <th>Subject</th>
+                            <th>Activity</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>9:00 AM - 10:30 AM</td>
+                            <td>Mathematics</td>
+                            <td>Lecture</td>
+                            <td><button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>11:00 AM - 12:30 PM</td>
+                            <td>Chemistry</td>
+                            <td>Lecture</td>
+                            <td><button>Delete</button></td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

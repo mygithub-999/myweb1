@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Notes Download</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #8B47B5; /* Navbar background color */
+            color: #FED0C5; /* Navbar text color */
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: #FED0C5; /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #A65CC6; /* Lighter shade for hover */
+            color: #FFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .notes-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .notes-section h2 {
+            font-size: 28px;
+            color: #8B47B5; /* Updated color for headings */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            padding-bottom: 10px;
+        }
+
+        .subject {
+            margin-bottom: 40px;
+        }
+
+        .subject h3 {
+            font-size: 24px;
+            color: #8B47B5; /* Updated color for subject headings */
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .notes-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notes-list li {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .notes-list li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .notes-list li span {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .download-btn {
+            background-color: #8B47B5; /* Button background color */
+            color: #FED0C5; /* Button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #A65CC6; /* Lighter shade for button hover */
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .notes-section {
+                padding: 20px;
+            }
+
+            .notes-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .download-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">Notes</div>
+        <nav class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Assignments</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="notes-section">
+            <h2>Download Notes</h2>
+
+            <!-- Mathematics Notes -->
+            <div class="subject">
+                <h3>Mathematics</h3>
+                <ul class="notes-list">
+                    <li>
+                        <span>Calculus Notes - Chapter 1</span>
+                        <a href="notes/calculus_ch1.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Algebra Notes - Chapter 2</span>
+                        <a href="notes/algebra_ch2.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Physics Notes -->
+            <div class="subject">
+                <h3>Physics</h3>
+                <ul class="notes-list">
+                    <li>
+                        <span>Mechanics Notes - Chapter 3</span>
+                        <a href="notes/mechanics_ch3.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Optics Notes - Chapter 4</span>
+                        <a href="notes/optics_ch4.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chemistry Notes -->
+            <div class="subject">
+                <h3>Chemistry</h3>
+                <ul class="notes-list">
+                    <li>
+                        <span>Organic Chemistry Notes - Chapter 5</span>
+                        <a href="notes/organic_ch5.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Inorganic Chemistry Notes - Chapter 6</span>
+                        <a href="notes/inorganic_ch6.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Biology Notes -->
+            <div class="subject">
+                <h3>Biology</h3>
+                <ul class="notes-list">
+                    <li>
+                        <span>Cell Biology Notes - Chapter 7</span>
+                        <a href="notes/cell_biology_ch7.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Genetics Notes - Chapter 8</span>
+                        <a href="notes/genetics_ch8.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

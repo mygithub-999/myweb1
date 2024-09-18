@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Check Student Attendance</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #8B47B5; /* Navbar background color */
+            color: #FED0C5; /* Navbar text color */
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: #FED0C5; /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #A65CC6; /* Lighter shade for hover */
+            color: #FFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .attendance-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .attendance-section h2 {
+            font-size: 28px;
+            color: #8B47B5; /* Updated color for headings */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            padding-bottom: 10px;
+        }
+
+        .student-summary {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-summary p {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .attendance-list {
+            margin-top: 20px;
+        }
+
+        .attendance-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .attendance-list th, .attendance-list td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .attendance-list th {
+            background-color: #8B47B5; /* Header background color */
+            color: #FED0C5; /* Header text color */
+        }
+
+        .attendance-list tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .attendance-section {
+                padding: 20px;
+            }
+
+            .attendance-list th, .attendance-list td {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">Admin Dashboard</div>
+        <nav class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Manage Students</a>
+            <a href="#">View Attendance</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="attendance-section">
+            <h2>Student Attendance</h2>
+
+            <!-- Student Division 1 -->
+            <div class="student-summary">
+                <p><strong>Student Name:</strong> Rajjak Ahmed</p>
+                <p><strong>Total Classes:</strong> 40</p>
+                <p><strong>Classes Attended:</strong> 32</p>
+                <p><strong>Attendance Percentage:</strong> 80%</p>
+            </div>
+            <div class="attendance-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-09-01</td>
+                            <td>Sunday</td>
+                            <td>Mathematics</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>2024-09-02</td>
+                            <td>Monday</td>
+                            <td>Physics</td>
+                            <td>Absent</td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Student Division 2 -->
+            <div class="student-summary">
+                <p><strong>Student Name:</strong> Piyush Prasad</p>
+                <p><strong>Total Classes:</strong> 40</p>
+                <p><strong>Classes Attended:</strong> 35</p>
+                <p><strong>Attendance Percentage:</strong> 87.5%</p>
+            </div>
+            <div class="attendance-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-09-01</td>
+                            <td>Sunday</td>
+                            <td>Chemistry</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>2024-09-02</td>
+                            <td>Monday</td>
+                            <td>Biology</td>
+                            <td>Present</td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Student Division 3 -->
+            <div class="student-summary">
+                <p><strong>Student Name:</strong> Diganto Guha</p>
+                <p><strong>Total Classes:</strong> 40</p>
+                <p><strong>Classes Attended:</strong> 28</p>
+                <p><strong>Attendance Percentage:</strong> 70%</p>
+            </div>
+            <div class="attendance-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-09-01</td>
+                            <td>Sunday</td>
+                            <td>Physics</td>
+                            <td>Absent</td>
+                        </tr>
+                        <tr>
+                            <td>2024-09-02</td>
+                            <td>Monday</td>
+                            <td>Mathematics</td>
+                            <td>Present</td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Student Division 4 -->
+            <div class="student-summary">
+                <p><strong>Student Name:</strong> Debargaya Dinda</p>
+                <p><strong>Total Classes:</strong> 40</p>
+                <p><strong>Classes Attended:</strong> 30</p>
+                <p><strong>Attendance Percentage:</strong> 75%</p>
+            </div>
+            <div class="attendance-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-09-01</td>
+                            <td>Sunday</td>
+                            <td>English</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>2024-09-02</td>
+                            <td>Monday</td>
+                            <td>History</td>
+                            <td>Absent</td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Student Division 5 -->
+            <div class="student-summary">
+                <p><strong>Student Name:</strong> Prakhar</p>
+                <p><strong>Total Classes:</strong> 40</p>
+                <p><strong>Classes Attended:</strong> 27</p>
+                <p><strong>Attendance Percentage:</strong> 67.5%</p>
+            </div>
+            <div class="attendance-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-09-01</td>
+                            <td>Sunday</td>
+                            <td>Biology</td>
+                            <td>Absent</td>
+                        </tr>
+                        <tr>
+                            <td>2024-09-02</td>
+                            <td>Monday</td>
+                            <td>Mathematics</td>
+                            <td>Present</td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Add more student divisions as needed -->
+        </div>
+    </div>
+
+</body>
+</html>
+

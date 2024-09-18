@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        /* Reset some browser defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 60px 0 0 0; /* Add top padding to prevent the content from being hidden by the fixed header */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #8B47B5, #FED0C5);
+            color: #FED0C5;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            font-weight: 600;
+            position: fixed; /* Fix the header to the top */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .login-container {
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container h2 {
+            font-size: 28px;
+            color: #8B47B5;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #8B47B5;
+            box-shadow: 0 0 8px rgba(139, 71, 181, 0.2);
+        }
+
+        /* Button Styling */
+        .form-group button,
+        input[type="submit"] {
+            width: 100%;
+            background-color: #8B47B5;
+            color: #FED0C5;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 15px;
+        }
+
+        .form-group button:hover,
+        input[type="submit"]:hover {
+            background-color: #A65CC6;
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            color: #8B47B5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align:justify;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .login-container {
+                max-width: 90%;
+                padding: 20px;
+            }
+
+            .header-logo {
+                font-size: 24px;
+            }
+
+            .form-group input,
+            .form-group button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">Student Login</div>
+    </header>
+
+    {{#if message}}
+        <p class="error">{{message}}</p>
+    {{/if}}
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/student-login" method="post">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+
+        <div class="form-footer">
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+
+</body>
+</html>

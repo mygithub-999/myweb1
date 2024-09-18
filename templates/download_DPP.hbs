@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download DPP</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #8B47B5; /* Navbar background color */
+            color: #FED0C5; /* Navbar text color */
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: #FED0C5; /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #A65CC6; /* Lighter shade for hover */
+            color: #FFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .dpp-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .dpp-section h2 {
+            font-size: 28px;
+            color: #8B47B5; /* Updated color for headings */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            padding-bottom: 10px;
+        }
+
+        .subject {
+            margin-bottom: 40px;
+        }
+
+        .subject h3 {
+            font-size: 24px;
+            color: #8B47B5; /* Updated color for subject headings */
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .dpp-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dpp-list li {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dpp-list li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .dpp-list li span {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .download-btn {
+            background-color: #8B47B5; /* Button background color */
+            color: #FED0C5; /* Button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .download-btn:hover {
+            background-color: #A65CC6; /* Lighter shade for button hover */
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dpp-section {
+                padding: 20px;
+            }
+
+            .dpp-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .download-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">DPP</div>
+        <nav class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Assignments</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="dpp-section">
+            <h2>Download Daily Practice Papers</h2>
+
+            <!-- Mathematics DPPs -->
+            <div class="subject">
+                <h3>Mathematics</h3>
+                <ul class="dpp-list">
+                    <li>
+                        <span>Algebra - Practice Paper 1</span>
+                        <a href="dpp/mathematics_algebra_p1.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Calculus - Practice Paper 2</span>
+                        <a href="dpp/mathematics_calculus_p2.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Physics DPPs -->
+            <div class="subject">
+                <h3>Physics</h3>
+                <ul class="dpp-list">
+                    <li>
+                        <span>Kinematics - Practice Paper 1</span>
+                        <a href="dpp/physics_kinematics_p1.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Thermodynamics - Practice Paper 2</span>
+                        <a href="dpp/physics_thermodynamics_p2.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chemistry DPPs -->
+            <div class="subject">
+                <h3>Chemistry</h3>
+                <ul class="dpp-list">
+                    <li>
+                        <span>Organic Chemistry - Practice Paper 1</span>
+                        <a href="dpp/chemistry_organic_p1.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Inorganic Chemistry - Practice Paper 2</span>
+                        <a href="dpp/chemistry_inorganic_p2.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Biology DPPs -->
+            <div class="subject">
+                <h3>Biology</h3>
+                <ul class="dpp-list">
+                    <li>
+                        <span>Cell Biology - Practice Paper 1</span>
+                        <a href="dpp/biology_cell_p1.pdf" class="download-btn" download>Download</a>
+                    </li>
+                    <li>
+                        <span>Genetics - Practice Paper 2</span>
+                        <a href="dpp/biology_genetics_p2.pdf" class="download-btn" download>Download</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

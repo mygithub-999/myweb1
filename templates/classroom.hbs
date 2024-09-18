@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #FED0C5, #8B47B5);
+            color: #8B47B5;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-weight: 600;
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-right: auto;
+        }
+
+        .header-search {
+            margin-right: auto;
+            position: relative;
+        }
+
+        .header-search input {
+            width: 100%;
+            max-width: 250px;
+            padding: 7px 15px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+            background-color: #FED0C5;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .header-search input:focus {
+            box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .header-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 7px 12px;
+            transition: color 0.3s ease, background 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #8B47B5;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 30px;
+            padding: 0 30px;
+            justify-content: space-between;
+        }
+
+        .left-sidebar {
+            width: 260px;
+            background-color: #FED0C5;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            margin-right: 30px;
+            font-weight: 500;
+        }
+
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-profile img {
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sidebar-profile img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar-profile h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #8B47B5;
+            font-weight: 700;
+        }
+
+        .sidebar-profile p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .sidebar-links1 a {
+            display: block;
+            color: #8B47B5;
+            text-decoration: none;
+            padding: 12px 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .sidebar-links1 a:hover {
+            padding-left: 15px;
+            background-color: #d0a5ea;
+        }
+
+        .right-sidebar {
+            width: 260px;
+            background-color: #FED0C5;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            margin-left: 30px;
+            font-weight: 500;
+        }
+
+        .calendar {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .calendar h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #8B47B5;
+        }
+
+        .online-users {
+            text-align: center;
+        }
+
+        .online-users h3 {
+            font-size: 20px;
+            color: #8B47B5;
+            margin-bottom: 10px;
+        }
+
+        .online-users ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .online-users li {
+            background-color: #fff;
+            color: #8B47B5;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: calc(100% - 580px);
+        }
+
+        .courses-section {
+            padding: 20px;
+            background-color: #FED0C5;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .courses-section h2 {
+            font-size: 28px;
+            color: #8B47B5;
+            margin-bottom: 20px;
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .course-item {
+            padding: 15px;
+            background-color: #FED0C5;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(247, 241, 241, 0.1);
+            transition: all 0.3s ease;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .course-item:hover {
+            background-color: #d0a5ea;
+            box-shadow: 0 4px 12px rgba(255, 253, 253, 0.2);
+        }
+
+        .course-item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .course-item a:hover {
+            text-decoration: underline;
+        }
+
+        .course-item h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .course-item p {
+            margin: 5px 0 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .news-bar {
+            background-color: #8B47B5;
+            color: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: expand 0.5s ease-out;
+            transform-origin: top;
+        }
+
+        .news-bar h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .news-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .news-bar li {
+            padding: 10px 0;
+            border-bottom: 1px solid #d0a5ea;
+        }
+
+        .news-bar li:last-child {
+            border-bottom: none;
+        }
+
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #c7a6dc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: bounce 2s infinite;
+        }
+
+        .chatbot-icon:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expand {
+            from {
+                transform: scaleY(0);
+                opacity: 0;
+            }
+            to {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">moodle</div>
+        <div class="header-search">
+            <input type="text" placeholder="Search...">
+        </div>
+        <nav class="header-nav">
+        <!--    <a href="classroom">Home</a>-->
+            <a href="#">Profile</a>
+            <a href="#">Courses</a>
+            <a href="#">Assignments</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="left-sidebar">
+            <div class="sidebar-profile">
+                <img src="https://via.placeholder.com/90" alt="Profile Picture">
+                <h3>{{userName}}</h3>
+                <p>13031122007</p>
+            </div>
+            <div class="sidebar-links1">
+                <a href="#">Submit Attendance</a>
+                <a href="classroom_message">Messages</a>
+                <a href="student_routine">Routine</a>
+                <a href="#">Marks</a>
+                <a href="student_attendence">Your Attendance</a>
+                <a href="notes_download">Notes</a>
+                <a href="lecture_watch">Recorded Lectures</a>
+                <a href="download_DPP">DPP</a>
+            </div>
+        </aside>
+
+        <main>
+            <div class="courses-section">
+                <h2>Available Courses</h2>
+                <div class="course-list">
+                    <div class="course-item">
+                        <a href="#">
+                            <h3>Mathematics</h3>
+                            <p><strong>Teacher:</strong> Mr.Deepak</p>
+                        </a>
+                    </div>
+                    <div class="course-item">
+                        <a href="#">
+                            <h3>Physics</h3>
+                            <p><strong>Teacher:</strong> Ms. Payel</p>
+                        </a>
+                    </div>
+                    <div class="course-item">
+                        <a href="#">
+                            <h3>Chemistry</h3>
+                            <p><strong>Teacher:</strong> Dr.Abishek</p>
+                        </a>
+                    </div>
+                    <div class="course-item">
+                        <a href="#">
+                            <h3>Biology</h3>
+                            <p><strong>Teacher:</strong> Prof. Raju Rastogi</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-bar">
+                <h3>Site News</h3>
+                <ul>
+                    <li>New course on Data Science starting next week!</li>
+                    <li>Check out the updated schedule for upcoming exams.</li>
+                    <li>Maintenance will be performed on the server this weekend.</li>
+                </ul>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="calendar">
+                <h3>Calendar</h3>
+                <iframe src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="240" height="200" frameborder="0" scrolling="no"></iframe>
+            </div>
+
+            <div class="online-users">
+                <h3>Online Users</h3>
+                <ul>
+                    <li>Diganto Guha</li>
+                    <li>Piyush Prasad</li>
+                </ul>
+            </div>
+            <div class="chatbot-icon">
+                <a href="chatbot">
+                    <img src="chatbot.jpeg" width="40px" alt="Chatbot">
+                </a>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

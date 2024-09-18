@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Notes Upload</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #8B47B5; /* Navbar background color */
+            color: #FED0C5; /* Navbar text color */
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: #FED0C5; /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: #A65CC6; /* Lighter shade for hover */
+            color: #FFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .upload-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-section h2 {
+            font-size: 28px;
+            color: #8B47B5; /* Updated color for headings */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            padding-bottom: 10px;
+        }
+
+        .subject {
+            margin-bottom: 40px;
+        }
+
+        .subject h3 {
+            font-size: 24px;
+            color: #8B47B5; /* Updated color for subject headings */
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8B47B5; /* Border color */
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .upload-form label {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .upload-form input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .upload-form input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .upload-form button {
+            background-color: #8B47B5; /* Button background color */
+            color: #FED0C5; /* Button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+        }
+
+        .upload-form button:hover {
+            background-color: #A65CC6; /* Lighter shade for button hover */
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .upload-section {
+                padding: 20px;
+            }
+
+            .upload-form {
+                gap: 10px;
+            }
+
+            .upload-form input[type="file"] {
+                margin-top: 10px;
+            }
+
+            .upload-form button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">Notes</div>
+        <nav class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Assignments</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="upload-section">
+            <h2>Upload Notes</h2>
+
+            <!-- Mathematics Upload -->
+            <div class="subject">
+                <h3>Mathematics</h3>
+                <form class="upload-form" action="/upload/mathematics" method="post" enctype="multipart/form-data">
+                    <label for="mathematics-title">Title:</label>
+                    <input type="text" id="mathematics-title" name="title" required>
+                    
+                    <label for="mathematics-file">Choose file:</label>
+                    <input type="file" id="mathematics-file" name="file" accept=".pdf" required>
+                    
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+
+            <!-- Physics Upload -->
+            <div class="subject">
+                <h3>Physics</h3>
+                <form class="upload-form" action="/upload/physics" method="post" enctype="multipart/form-data">
+                    <label for="physics-title">Title:</label>
+                    <input type="text" id="physics-title" name="title" required>
+                    
+                    <label for="physics-file">Choose file:</label>
+                    <input type="file" id="physics-file" name="file" accept=".pdf" required>
+                    
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+
+            <!-- Chemistry Upload -->
+            <div class="subject">
+                <h3>Chemistry</h3>
+                <form class="upload-form" action="/upload/chemistry" method="post" enctype="multipart/form-data">
+                    <label for="chemistry-title">Title:</label>
+                    <input type="text" id="chemistry-title" name="title" required>
+                    
+                    <label for="chemistry-file">Choose file:</label>
+                    <input type="file" id="chemistry-file" name="file" accept=".pdf" required>
+                    
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+
+            <!-- Biology Upload -->
+            <div class="subject">
+                <h3>Biology</h3>
+                <form class="upload-form" action="/upload/biology" method="post" enctype="multipart/form-data">
+                    <label for="biology-title">Title:</label>
+                    <input type="text" id="biology-title" name="title" required>
+                    
+                    <label for="biology-file">Choose file:</label>
+                    <input type="file" id="biology-file" name="file" accept=".pdf" required>
+                    
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

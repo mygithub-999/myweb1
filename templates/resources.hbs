@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FED0C5, #8B47B5);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #8B47B5;
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+
+        .resource-section {
+            border: 1px solid #8B47B5;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #FED0C5;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .resource-section h2 {
+            margin-bottom: 15px;
+            color: #8B47B5;
+            animation: slideIn 1s ease-out;
+        }
+
+        .resource-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #8B47B5;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+
+        .resource-item:hover {
+            transform: scale(1.02); /* Slightly enlarges on hover */
+            transition: transform 0.2s ease;
+        }
+
+        .resource-status {
+            font-weight: bold;
+        }
+
+        .status-available {
+            color: #4CAF50; /* Green for available */
+        }
+
+        .status-unavailable {
+            color: #F44336; /* Red for unavailable */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>School Resources Overview</h1>
+
+        <!-- Projectors Section -->
+        <div class="resource-section">
+            <h2>Projectors</h2>
+            <div class="resource-item">
+                <span>Available:</span>
+                <span class="resource-status status-available">10</span>
+            </div>
+        </div>
+
+        <!-- Classes Section -->
+        <div class="resource-section">
+            <h2>Classes</h2>
+            <div class="resource-item">
+                <span>Vacant:</span>
+                <span class="resource-status status-available">36</span>
+            </div>
+            <div class="resource-item">
+                <span>Occupied:</span>
+                <span class="resource-status status-unavailable">23</span>
+            </div>
+        </div>
+
+        <!-- Labs Section -->
+        <div class="resource-section">
+            <h2>Labs</h2>
+            <div class="resource-item">
+                <span>Vacant:</span>
+                <span class="resource-status status-available">34</span>
+            </div>
+            <div class="resource-item">
+                <span>Currently Unavailable:</span>
+                <span class="resource-status status-unavailable">16</span>
+            </div>
+        </div>
+
+        <!-- Computers Section -->
+        <div class="resource-section">
+            <h2>Computers</h2>
+            <div class="resource-item">
+                <span>Available:</span>
+                <span class="resource-status status-available">120</span>
+            </div>
+            <div class="resource-item">
+                <span>Occupied:</span>
+                <span class="resource-status status-unavailable">80</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
